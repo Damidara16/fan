@@ -1,0 +1,20 @@
+<h2>step 1</h2>
+<a href=https://connect.stripe.com/express/oauth/authorize?redirect_uri={% url 'banking:step2' %}&client_id=ca_Cy94GsAPP0p1bh123Wu3eyXPudMGpZjg
+&state=verified>connect</a>
+
+<form action="{% url 'banking:step3' %}" method="POST">{% csrf_token %}
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_JJ1kyJo7vcwNwhRksCw6xsHC"
+    data-amount="999"
+    data-name="Stripe.com"
+    data-description="Widget"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto"
+    data-zip-code="true"
+    data-shipping-address='true'
+    data-billing-address='true'>
+  </script>
+</form>
+
+<h2>{{source}}</h2>
